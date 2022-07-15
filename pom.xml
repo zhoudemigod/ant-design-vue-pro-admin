@@ -2,13 +2,16 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
-    <groupId>com.advp</groupId>
-    <artifactId>advp-admin</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
+    <groupId>com.adv</groupId>
+    <artifactId>adv-admin</artifactId>
+    <version>1.0.0</version>
     <packaging>pom</packaging>
     <description>ant-design-vue-pro 后台微服务脚手架</description>
 
-    <modules></modules>
+    <modules>
+        <module>adv-oauth2</module>
+        <module>adv-common</module>
+    </modules>
 
     <parent>
         <groupId>org.springframework.boot</groupId>
@@ -28,6 +31,7 @@
         <httpclientutil.version>1.0.4</httpclientutil.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <java.version>1.8</java.version>
+        <hutool.version>5.8.4</hutool.version>
     </properties>
 
     <!--依赖声明-->
@@ -90,6 +94,11 @@
                 <groupId>com.arronlong</groupId>
                 <artifactId>httpclientutil</artifactId>
                 <version>${httpclientutil.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>cn.hutool</groupId>
+                <artifactId>hutool-all</artifactId>
+                <version>${hutool.version}</version>
             </dependency>
 
         </dependencies>
