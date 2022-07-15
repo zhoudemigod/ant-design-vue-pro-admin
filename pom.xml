@@ -11,6 +11,7 @@
     <modules>
         <module>adv-oauth2</module>
         <module>adv-common</module>
+        <module>adv-upms</module>
     </modules>
 
     <parent>
@@ -32,6 +33,7 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <java.version>1.8</java.version>
         <hutool.version>5.8.4</hutool.version>
+        <adv.version>1.0.0</adv.version>
     </properties>
 
     <!--依赖声明-->
