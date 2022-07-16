@@ -13,6 +13,7 @@
         <module>adv-common</module>
         <module>adv-upms</module>
         <module>adv-api</module>
+        <module>adv-gateway</module>
     </modules>
 
     <parent>
