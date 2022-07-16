@@ -1,71 +1,48 @@
 package com.adv.util.base;
 
-import com.adv.util.enums.ResultEnum;
-import com.alibaba.fastjson.JSON;
-import lombok.AllArgsConstructor;
+import com.adv.util.enums.ErrorCode;
 import lombok.Data;
-import lombok.NoArgsConstructor;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
-import java.io.Serializable;
 
 /**
- * 用于封装接口统一响应结果
- * @author zhouwenfang.com
+ * 响应数据
+ *
+ * @author zhouwenfnag
  */
 @Data
-@NoArgsConstructor // 无参构造方法
-@AllArgsConstructor // 有参构造方法
-public final class Result implements Serializable {
+public class Result<T> {
+    // 编码 0表示成功，其他值表示失败
+    private int code = 0;
+    // 消息内容
+    private String msg = "success";
+    // 响应数据
+    private T data;
 
-    private static final Logger logger = LoggerFactory.getLogger(Result.class);
-
-    private static final long serialVersionUID = 1L;
-
-    /**
-     * 响应业务状态码
-     */
-    private Integer code;
-
-    /**
-     * 响应信息
-     */
-    private String message;
-
-    /**
-     * 响应中的数据
-     */
-    private Object data;
-
-    public static Result ok() {
-        return new Result(ResultEnum.SUCCESS.getCode(), ResultEnum.SUCCESS.getDesc(), null);
+    public static <T> Result<T> ok() {
+        return ok(null);
     }
 
-    public static Result ok(Object data) {
-        return new Result(ResultEnum.SUCCESS.getCode(), ResultEnum.SUCCESS.getDesc(), data);
+    public static <T> Result<T> ok(T data) {
+        Result<T> result = new Result<>();
+        result.setData(data);
+        return result;
     }
 
-    public static Result ok(String message, Object data) {
-        return new Result(ResultEnum.SUCCESS.getCode(), message, data);
+    public static <T> Result<T> error() {
+        return error(ErrorCode.INTERNAL_SERVER_ERROR);
     }
 
-    public static Result error(String message) {
-        logger.debug("返回错误：code={}, message={}", ResultEnum.ERROR.getCode(), message);
-        return new Result(ResultEnum.ERROR.getCode(), message, null);
+    public static <T> Result<T> error(String msg) {
+        return error(ErrorCode.INTERNAL_SERVER_ERROR.getCode(), msg);
     }
 
-    public static Result build(int code, String message) {
-        logger.debug("返回结果：code={}, message={}", code, message);
-        return new Result(code, message, null);
+    public static <T> Result<T> error(ErrorCode errorCode) {
+        return error(errorCode.getCode(), errorCode.getMsg());
     }
 
-    public static Result build(ResultEnum resultEnum) {
-        logger.debug("返回结果：code={}, message={}", resultEnum.getCode(), resultEnum.getDesc());
-        return new Result(resultEnum.getCode(), resultEnum.getDesc(), null);
-    }
-
-    public String toJsonString() {
-        return JSON.toJSONString(this);
+    public static <T> Result<T> error(int code, String msg) {
+        Result<T> result = new Result<>();
+        result.setCode(code);
+        result.setMsg(msg);
+        return result;
     }
 }

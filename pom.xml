@@ -12,6 +12,7 @@
         <module>adv-oauth2</module>
         <module>adv-common</module>
         <module>adv-upms</module>
+        <module>adv-api</module>
     </modules>
 
     <parent>
@@ -26,7 +27,7 @@
     <properties>
         <spring-cloud.version>Hoxton.SR7</spring-cloud.version>
         <cloud-alibaba.version>2.2.1.RELEASE</cloud-alibaba.version>
-        <mybatis-plus.version>3.3.1</mybatis-plus.version>
+        <mybatis-plus.version>3.5.1</mybatis-plus.version>
         <druid.version>1.1.21</druid.version>
         <fastjson.version>1.2.8</fastjson.version>
         <httpclientutil.version>1.0.4</httpclientutil.version>
@@ -34,6 +35,9 @@
         <java.version>1.8</java.version>
         <hutool.version>5.8.4</hutool.version>
         <adv.version>1.0.0</adv.version>
+        <swagger.version>3.0.0</swagger.version>
+        <swagger.ui.version>1.9.6</swagger.ui.version>
+        <org.mapstruct>1.4.1.Final</org.mapstruct>
     </properties>
 
     <!--依赖声明-->
@@ -72,10 +76,28 @@
             </dependency>
 
             <!-- Swagger -->
+            <!-- 引入Swagger3依赖 -->
             <dependency>
-                <groupId>com.spring4all</groupId>
-                <artifactId>swagger-spring-boot-starter</artifactId>
-                <version>1.9.1.RELEASE</version>
+                <groupId>io.springfox</groupId>
+                <artifactId>springfox-boot-starter</artifactId>
+                <version>${swagger.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.github.xiaoymin</groupId>
+                <artifactId>swagger-bootstrap-ui</artifactId>
+                <version>${swagger.ui.version}</version>
+            </dependency>
+
+            <!-- mapStruct 对象转换 -->
+            <dependency>
+                <groupId>org.mapstruct</groupId>
+                <artifactId>mapstruct</artifactId>
+                <version>${org.mapstruct}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.mapstruct</groupId>
+                <artifactId>mapstruct-processor</artifactId>
+                <version>${org.mapstruct}</version>
             </dependency>
 
             <!-- aliyun oss -->
