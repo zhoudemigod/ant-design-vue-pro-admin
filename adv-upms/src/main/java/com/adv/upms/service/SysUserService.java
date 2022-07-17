@@ -1,10 +1,12 @@
 package com.adv.upms.service;
 
+import com.adv.api.upms.req.RegisterREQ;
 import com.adv.api.upms.entity.SysUser;
 import com.adv.api.upms.query.SysUserQuery;
 import com.adv.api.upms.vo.SysUserVO;
-import com.adv.util.base.PageResult;
-import com.adv.util.base.service.BaseService;
+import com.adv.util.base.base.PageResult;
+import com.adv.util.base.base.Result;
+import com.adv.util.base.base.service.BaseService;
 
 import java.util.List;
 
@@ -23,4 +25,10 @@ public interface SysUserService extends BaseService<SysUser> {
     void update(SysUserVO vo);
 
     void delete(List<Long> idList);
+
+    SysUser findByUsername(String username);
+
+    Result checkUsername(String username);
+
+    Result register(RegisterREQ req);
 }

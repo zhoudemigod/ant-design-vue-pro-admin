@@ -1,7 +1,7 @@
 package com.adv.upms.dao;
 
+import com.adv.util.base.base.dao.BaseDao;
 import com.adv.api.upms.entity.SysUser;
-import com.adv.util.base.dao.BaseDao;
 import org.apache.ibatis.annotations.Mapper;
 
 /**

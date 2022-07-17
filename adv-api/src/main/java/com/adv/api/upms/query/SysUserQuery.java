@@ -1,6 +1,6 @@
 package com.adv.api.upms.query;
 
-import com.adv.util.base.Query;
+import com.adv.util.base.base.Query;
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Data;
 import lombok.EqualsAndHashCode;

@@ -1,7 +1,7 @@
 package com.adv.upms.convert;
 
-import com.adv.api.upms.entity.SysUser;
 import com.adv.api.upms.vo.SysUserVO;
+import com.adv.api.upms.entity.SysUser;
 import org.mapstruct.Mapper;
 import org.mapstruct.factory.Mappers;
 import java.util.List;

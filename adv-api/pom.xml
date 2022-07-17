@@ -9,7 +9,6 @@
     </parent>
 
     <artifactId>adv-api</artifactId>
-    <packaging>jar</packaging>
     <description>adv-api 提供api调用服务</description>
 
     <dependencies>

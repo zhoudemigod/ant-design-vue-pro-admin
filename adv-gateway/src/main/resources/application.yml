@@ -20,6 +20,11 @@ spring:
             # 匹配访问路由，以 /article开头的请求代理到
             # 访问 http://localhost:6001/article/api/article/1 代理到 http://localhost:8001/article/api/article/1
             - Path=/auth/**
+
+        - id: adv-upms
+          uri: lb://adv-upms
+          predicates:
+            - Path=/user/**
 #          filters:
 #            # 代理转发去掉路径， /article/** ，会将 每个 /article 在过滤器中截取掉
 #            # - StripPrefix=1
@@ -32,3 +37,6 @@ spring:
 #                redis-rate-limiter.replenishRate: 2
 #                # 允许用户在一秒种内完成最大请求数。令牌桶最多可以容纳的令牌数量 。如果设置为0将阻止所有请求
 #                redis-rate-limiter.burstCapacity: 4
+logging:
+  level:
+    com.alibaba.nacos.client.config.impl: WARN

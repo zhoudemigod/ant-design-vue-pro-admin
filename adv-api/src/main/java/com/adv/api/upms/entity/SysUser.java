@@ -3,7 +3,6 @@ package com.adv.api.upms.entity;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import com.baomidou.mybatisplus.annotation.*;
-import lombok.Value;
 
 import java.util.Date;
 
@@ -51,7 +50,7 @@ public class SysUser {
 	/**
 	* 手机号
 	*/
-	private Integer telephone;
+	private String telephone;
 
 	/**
 	* 最后登录ip

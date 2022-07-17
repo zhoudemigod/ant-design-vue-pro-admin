@@ -1,6 +1,6 @@
 package com.adv.api.upms.vo;
 
-import com.adv.util.tools.DateUtils;
+import com.adv.util.base.tools.DateUtils;
 import io.swagger.v3.oas.annotations.media.Schema;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Data;
@@ -37,7 +37,7 @@ public class SysUserVO implements Serializable {
 	private Integer status;
 
 	@Schema(description = "手机号")
-	private Integer telephone;
+	private String telephone;
 
 	@Schema(description = "最后登录ip")
 	private String lastLoginIp;

@@ -1,14 +1,14 @@
 package com.adv.upms.controller;
 
-import com.adv.api.upms.entity.SysUser;
+import com.adv.util.base.base.PageResult;
+import com.adv.upms.service.SysUserService;
 import com.adv.api.upms.vo.SysUserVO;
-import com.adv.util.base.PageResult;
-import com.adv.util.base.Result;
+import com.adv.api.upms.entity.SysUser;
+import com.adv.util.base.base.Result;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.AllArgsConstructor;
 import com.adv.upms.convert.SysUserConvert;
-import com.adv.upms.service.SysUserService;
 import com.adv.api.upms.query.SysUserQuery;
 import org.springframework.web.bind.annotation.*;
 
@@ -22,7 +22,7 @@ import java.util.List;
 * @since 1.0.0 2022-07-16
 */
 @RestController
-@RequestMapping("sysuser")
+@RequestMapping("user")
 @Tag(name="用户表")
 @AllArgsConstructor
 public class SysUserController {

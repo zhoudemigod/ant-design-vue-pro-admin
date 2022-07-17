@@ -59,3 +59,8 @@ oos:
   keysecret: b5xpJ37mSNtWctVlgBwhe4kcJ2Mwfy  # 填写刚刚生成的Accesssecret
   bucketname: test220321bucket # bucket名称
   filehost: mq    #bucket下文件夹的路径
+
+
+logging:
+  level:
+    com.alibaba.nacos.client.config.impl: WARN
