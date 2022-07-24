@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>com.gcc</groupId>
+        <artifactId>advp</artifactId>
+        <version>1.0-SNAPSHOT</version>
+    </parent>
+    <artifactId>advp-feign</artifactId>
+    <description>advp-feign 服务间相互调用</description>
+
+    <dependencies>
+        <dependency>
+            <groupId>com.gcc</groupId>
+            <artifactId>advp-common-utils</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+
+        <!-- feign 调用服务接口 -->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-openfeign</artifactId>
+        </dependency>
+
+    </dependencies>
+
+</project>

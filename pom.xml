@@ -2,18 +2,19 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
-    <groupId>com.adv</groupId>
-    <artifactId>adv-admin</artifactId>
-    <version>1.0.0</version>
+
+    <groupId>com.gcc</groupId>
+    <artifactId>advp</artifactId>
+    <version>1.0-SNAPSHOT</version>
     <packaging>pom</packaging>
-    <description>ant-design-vue-pro 后台微服务脚手架</description>
+    <description>advp 快速对接框架</description>
 
     <modules>
-        <module>adv-oauth2</module>
-        <module>adv-common</module>
-        <module>adv-upms</module>
-        <module>adv-api</module>
-        <module>adv-gateway</module>
+        <module>advp-system</module>
+        <module>advp-gateway</module>
+        <module>advp-oauth2</module>
+        <module>advp-common</module>
+        <module>advp-feign</module>
     </modules>
 
     <parent>
@@ -23,23 +24,23 @@
         <relativePath/>
     </parent>
 
-
     <!--依赖版本管理-->
     <properties>
         <spring-cloud.version>Hoxton.SR7</spring-cloud.version>
         <cloud-alibaba.version>2.2.1.RELEASE</cloud-alibaba.version>
-        <mybatis-plus.version>3.5.1</mybatis-plus.version>
+        <mybatis-plus.version>3.3.1</mybatis-plus.version>
         <druid.version>1.1.21</druid.version>
+        <kaptcha.version>2.3.2</kaptcha.version>
         <fastjson.version>1.2.8</fastjson.version>
+        <commons-lang.version>2.6</commons-lang.version>
+        <commons-collections.version>3.2.2</commons-collections.version>
+        <commons-io.version>2.6</commons-io.version>
         <httpclientutil.version>1.0.4</httpclientutil.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <java.version>1.8</java.version>
-        <hutool.version>5.8.4</hutool.version>
-        <adv.version>1.0.0</adv.version>
-        <swagger.version>3.0.0</swagger.version>
-        <swagger.ui.version>1.9.6</swagger.ui.version>
         <org.mapstruct>1.4.1.Final</org.mapstruct>
     </properties>
+
 
     <!--依赖声明-->
     <dependencyManagement>
@@ -76,30 +77,24 @@
                 <version>${druid.version}</version>
             </dependency>
 
-            <!-- Swagger -->
             <!-- 引入Swagger3依赖 -->
             <dependency>
                 <groupId>io.springfox</groupId>
                 <artifactId>springfox-boot-starter</artifactId>
-                <version>${swagger.version}</version>
+                <version>3.0.0</version>
             </dependency>
             <dependency>
                 <groupId>com.github.xiaoymin</groupId>
                 <artifactId>swagger-bootstrap-ui</artifactId>
-                <version>${swagger.ui.version}</version>
+                <version>1.9.6</version>
             </dependency>
 
-            <!-- mapStruct 对象转换 -->
-            <dependency>
-                <groupId>org.mapstruct</groupId>
-                <artifactId>mapstruct</artifactId>
-                <version>${org.mapstruct}</version>
-            </dependency>
-            <dependency>
-                <groupId>org.mapstruct</groupId>
-                <artifactId>mapstruct-processor</artifactId>
-                <version>${org.mapstruct}</version>
-            </dependency>
+            <!-- kaptcha 用于图形验证码 -->
+<!--            <dependency>-->
+<!--                <groupId>com.github.penggle</groupId>-->
+<!--                <artifactId>kaptcha</artifactId>-->
+<!--                <version>${kaptcha.version}</version>-->
+<!--            </dependency>-->
 
             <!-- aliyun oss -->
             <dependency>
@@ -120,12 +115,34 @@
                 <artifactId>httpclientutil</artifactId>
                 <version>${httpclientutil.version}</version>
             </dependency>
-            <dependency>
-                <groupId>cn.hutool</groupId>
-                <artifactId>hutool-all</artifactId>
-                <version>${hutool.version}</version>
-            </dependency>
 
+            <!-- 工具类依赖 -->
+            <dependency>
+                <groupId>commons-lang</groupId>
+                <artifactId>commons-lang</artifactId>
+                <version>${commons-lang.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>commons-collections</groupId>
+                <artifactId>commons-collections</artifactId>
+                <version>${commons-collections.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>commons-io</groupId>
+                <artifactId>commons-io</artifactId>
+                <version>${commons-io.version}</version>
+            </dependency>
+            <!-- mapStruct 对象转换 -->
+            <dependency>
+                <groupId>org.mapstruct</groupId>
+                <artifactId>mapstruct</artifactId>
+                <version>${org.mapstruct}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.mapstruct</groupId>
+                <artifactId>mapstruct-processor</artifactId>
+                <version>${org.mapstruct}</version>
+            </dependency>
         </dependencies>
     </dependencyManagement>
 
